@@ -1,0 +1,30 @@
+/* 
+::after and ::before pseudo-classes are not covered by the default `*` selector, 
+we need to specify them explicitly with `*::before` and `x::after` 
+*/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  /*
+    box-sizing in not inherited by default.
+    We make it inheritable, so that we can set it to border-bos for the html emelent
+    and all other elements inherit it from html
+  */
+  box-sizing: inherit;
+}
+
+html {
+  /* 
+  62.5% of the default browser font size is 10px. 
+  10px makes it easy to calculate other pixes sizes in rem. 
+  We set the font-size here to 62.5% rather than 10px, 
+  because we want users to have the option to change their font size setting in the browser 
+  */
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
