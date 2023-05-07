@@ -4,12 +4,27 @@
     to right bottom, 
     rgba($color-primary, 0.8), 
     rgba($color-primary-dark, 0.8)), 
-    url('../img/hero.jpg');
+    url('../img/hero-small.jpg');
   background-size: cover;
   background-position: top;
   position: relative;
   -webkip-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  // Use the bigger image for high-density screens of at least 600px width or for screens with at least 2000px width 
+  // (for narrow screens we still want to use the smaller image) 
+  @media only screen and (min-resolution: 192dpi) and (min-width: 125em), (min-width: 37.5em) {
+    background-image: linear-gradient(
+      to right bottom, 
+      rgba($color-primary, 0.8), 
+      rgba($color-primary-dark, 0.8)), 
+      url('../img/hero.jpg');
+  }
+
+  @include respond(phone) {
+    -webkip-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
 
   &__logo-box {
     position: absolute;
